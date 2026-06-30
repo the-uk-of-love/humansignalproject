@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Manu | The Human Signal Project</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #06111e;
+      --gold: #d8ad3d;
+      --gold2: #f2cf72;
+      --text: #ffffff;
+      --muted: #d6dde8;
+      --line: rgba(216, 173, 61, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: radial-gradient(circle at top, #102942 0%, #06111e 55%, #030913 100%);
+      color: var(--text);
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(3, 10, 20, 0.84);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .brand {
+      font-family: "Cinzel", serif;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      font-size: clamp(1rem, 2.1vw, 1.85rem);
+      color: #fff;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      gap: 28px;
+      font-size: 0.98rem;
+      font-weight: 500;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .nav a:hover { color: var(--gold2); }
+
+    .about-hero {
+      min-height: 88vh;
+      padding: 130px 7% 80px;
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 58px;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(216,173,61,.18), transparent 28%),
+        radial-gradient(circle at 90% 30%, rgba(45,128,190,.22), transparent 32%),
+        linear-gradient(180deg, rgba(6,17,30,.92), rgba(3,9,19,.98));
+    }
+
+    .portrait-frame {
+      border: 1px solid rgba(216,173,61,.42);
+      border-radius: 22px;
+      padding: 10px;
+      background: linear-gradient(135deg, rgba(216,173,61,.25), rgba(255,255,255,.04));
+      box-shadow: 0 22px 55px rgba(0,0,0,.35);
+    }
+
+    .portrait-frame img {
+      width: 100%;
+      display: block;
+      border-radius: 16px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .hero-text h1 {
+      margin: 0 0 14px;
+      font-family: "Cinzel", serif;
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      line-height: 1.05;
+      color: #fff;
+      letter-spacing: 0.035em;
+    }
+
+    .subtitle {
+      color: var(--gold2);
+      font-family: "Cinzel", serif;
+      font-size: clamp(1rem, 1.9vw, 1.35rem);
+      letter-spacing: .06em;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    .mission {
+      font-size: clamp(1.18rem, 2.2vw, 1.65rem);
+      line-height: 1.65;
+      color: var(--muted);
+      max-width: 860px;
+      border-left: 3px solid var(--gold);
+      padding-left: 24px;
+    }
+
+    section {
+      padding: 78px 7%;
+      border-top: 1px solid rgba(216,173,61,.18);
+    }
+
+    .section-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      margin: 0 0 30px;
+      font-family: "Cinzel", serif;
+      font-size: clamp(1.8rem, 3.1vw, 2.8rem);
+      color: var(--gold2);
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 1.12rem;
+      line-height: 1.8;
+    }
+
+    .large-question {
+      margin: 34px auto;
+      max-width: 900px;
+      color: #fff;
+      font-size: clamp(1.25rem, 2.3vw, 1.75rem);
+      line-height: 1.55;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 34px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(18,45,72,.94), rgba(7,20,34,.94));
+      border: 1px solid rgba(216,173,61,.32);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.22);
+    }
+
+    .card h3 {
+      margin: 0 0 14px;
+      color: var(--gold2);
+      font-family: "Cinzel", serif;
+      font-size: 1.2rem;
+      letter-spacing: .04em;
+    }
+
+    .timeline {
+      margin-top: 36px;
+      border-left: 2px solid rgba(216,173,61,.45);
+      padding-left: 28px;
+    }
+
+    .timeline-item {
+      margin: 0 0 34px;
+      position: relative;
+    }
+
+    .timeline-item:before {
+      content: "";
+      position: absolute;
+      left: -37px;
+      top: 7px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 20px rgba(216,173,61,.5);
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 8px;
+      color: var(--gold2);
+      font-family: "Cinzel", serif;
+      letter-spacing: .035em;
+    }
+
+    .closing {
+      text-align: center;
+      max-width: 900px;
+      margin: 36px auto 0;
+      color: var(--gold2);
+      font-style: italic;
+      font-size: 1.35rem;
+      line-height: 1.7;
+    }
+
+    .button-wrap {
+      text-align: center;
+      margin-top: 36px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 28px;
+      border-radius: 8px;
+      border: 1px solid var(--gold);
+      color: #06111e;
+      text-decoration: none;
+      font-weight: 800;
+      background: linear-gradient(135deg, #c99725, #f2cf72);
+    }
+
+    footer {
+      padding: 40px 24px;
+      text-align: center;
+      color: rgba(255,255,255,.72);
+      background: #030913;
+      border-top: 1px solid rgba(216,173,61,.22);
+    }
+
+    @media (max-width: 900px) {
+      .site-header {
+        position: sticky;
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px 22px;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .about-hero {
+        grid-template-columns: 1fr;
+        padding: 56px 22px 62px;
+        text-align: center;
+      }
+
+      .portrait-frame {
+        max-width: 360px;
+        margin: 0 auto;
+      }
+
+      .mission {
+        border-left: none;
+        border-top: 3px solid var(--gold);
+        padding-left: 0;
+        padding-top: 22px;
+      }
+
+      section { padding: 58px 22px; }
+      .cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html">The Human Signal Project</a>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Manu</a>
+    <a href="index.html#research">Research</a>
+    <a href="index.html#join">Join</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="about-hero">
+    <div class="portrait-frame">
+      <img src="assets/founder.jpg" alt="Manu, founder of The Human Signal Project">
+    </div>
+
+    <div class="hero-text">
+      <h1>Meet Manu</h1>
+      <div class="subtitle">Independent Researcher • Consciousness Explorer • Founder of The Human Signal Project</div>
+      <div class="mission">
+        My mission is to help create a world where human beings remain sovereign in body, mind, and consciousness — free to grow, awaken, and realise their highest potential.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <h2>Science. Consciousness. Human Potential.</h2>
+
+      <p>
+        My life has been a journey at the intersection of science, consciousness, spirituality, and human potential.
+      </p>
+
+      <div class="large-question">
+        What does it truly mean to be human, and how can human beings realise their highest potential while remaining sovereign in body, mind, and consciousness?
+      </div>
+
+      <p>
+        This search has taken me through diverse paths — from the study and practice of meditation, consciousness development, and ancient spiritual traditions, to independent technological research and citizen science initiatives.
+      </p>
+
+      <p>
+        Throughout this journey, I have sought not only to understand reality intellectually, but also to explore it through direct personal experience.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <h2>Spiritual Exploration</h2>
+
+      <p>
+        Over the years, my inner search has included the study and practice of several spiritual traditions and systems of consciousness development.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Transcendental Meditation</h3>
+          <p>The practice of Transcendental Meditation and the TM-Sidhi programme opened for me a direct experience of consciousness as something practical, experiential, and deeply transformative.</p>
+        </div>
+
+        <div class="card">
+          <h3>Peter Deunov</h3>
+          <p>As a Bulgarian, the teachings of Peter Deunov / Beinsa Douno have been a profound part of my spiritual environment, especially through music, Paneurhythmy, prayer, nature, and the vision of a more awakened humanity.</p>
+        </div>
+
+        <div class="card">
+          <h3>Ashram Life in India</h3>
+          <p>Extended time in a Hindu ashram gave me direct experience of spiritual community, disciplined practice, service, and the living atmosphere of Vedic tradition.</p>
+        </div>
+
+        <div class="card">
+          <h3>Hare Krishna Tradition</h3>
+          <p>My more recent connection with the Hare Krishna / Vaishnava tradition has deepened my appreciation for devotion, sacred community, cow protection, and practical spiritual service.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <h2>From Technology To Human Signal</h2>
+
+      <p>
+        Alongside my spiritual exploration, I developed a strong interest in technology and its relationship to human health, freedom, and consciousness.
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Independent Technology Exploration</h3>
+          <p>My interest in technology began as practical exploration and gradually developed into a deeper investigation of how technological systems may interact with human life, perception, health, and freedom.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Bluetooth Police</h3>
+          <p>In 2022, I founded the Bluetooth Police initiative as an early citizen-science project dedicated to investigating unusual wireless signal phenomena associated with the human body.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Testing And Research Coordination</h3>
+          <p>What began as a personal investigation gradually evolved into broader research activity involving independent testing methodologies, public education, and collaboration with others exploring this emerging field.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>The Human Signal Project</h3>
+          <p>The Human Signal Project represents the next stage of this journey: a more mature, research-oriented, and solution-focused initiative dedicated to human sovereignty, consciousness, and practical investigation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <h2>Why I Created The Human Signal Project</h2>
+
+      <p>
+        I founded this initiative to create a platform for independent research, public awareness, international collaboration, practical testing, and the exploration of possible solutions.
+      </p>
+
+      <p>
+        My intention is not merely to raise questions, but to help build a global community capable of investigating these questions responsibly, openly, and compassionately.
+      </p>
+
+      <p>
+        I believe that humanity’s greatest technologies may still reside within the human being itself. The future of human evolution should remain a conscious choice.
+      </p>
+
+      <div class="closing">
+        The future is not something we merely inherit.<br>
+        It is something we consciously create together.
+      </div>
+
+      <div class="button-wrap">
+        <a class="button" href="index.html#join">Join The Movement</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p><strong>Contact:</strong> info@humansignalproject.org</p>
+  <p>© 2026 The Human Signal Project. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
