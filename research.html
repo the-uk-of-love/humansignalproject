@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research | The Human Signal Project</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #06111e;
+      --gold: #d8ad3d;
+      --gold2: #f2cf72;
+      --text: #ffffff;
+      --muted: #d6dde8;
+      --line: rgba(216, 173, 61, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: radial-gradient(circle at top, #102942 0%, #06111e 55%, #030913 100%);
+      color: var(--text);
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(3, 10, 20, 0.84);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .brand {
+      font-family: "Cinzel", serif;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      font-size: clamp(1rem, 2.1vw, 1.85rem);
+      color: #fff;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      gap: 28px;
+      font-size: 0.98rem;
+      font-weight: 500;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .nav a:hover { color: var(--gold2); }
+
+    .hero {
+      min-height: 70vh;
+      padding: 150px 7% 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(216,173,61,.18), transparent 28%),
+        radial-gradient(circle at 80% 30%, rgba(45,128,190,.22), transparent 32%),
+        linear-gradient(180deg, rgba(6,17,30,.92), rgba(3,9,19,.98));
+    }
+
+    .hero-inner {
+      max-width: 1050px;
+    }
+
+    .hero h1 {
+      margin: 0 0 22px;
+      font-family: "Cinzel", serif;
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      color: var(--gold2);
+      letter-spacing: 0.04em;
+    }
+
+    .hero p {
+      margin: 0 auto;
+      max-width: 950px;
+      color: var(--muted);
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      line-height: 1.8;
+    }
+
+    section {
+      padding: 78px 7%;
+      border-top: 1px solid rgba(216,173,61,.18);
+    }
+
+    .section-inner {
+      max-width: 1150px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      margin: 0 0 32px;
+      font-family: "Cinzel", serif;
+      font-size: clamp(1.8rem, 3.1vw, 2.8rem);
+      color: var(--gold2);
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 1.12rem;
+      line-height: 1.8;
+    }
+
+    .highlight-box {
+      margin-top: 32px;
+      padding: 30px;
+      border-radius: 18px;
+      background: rgba(216,173,61,.09);
+      border: 1px solid rgba(216,173,61,.4);
+      color: #fff;
+    }
+
+    .highlight-box strong {
+      color: var(--gold2);
+    }
+
+    .scale {
+      display: grid;
+      gap: 18px;
+    }
+
+    .scale-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 24px;
+      align-items: stretch;
+      background: linear-gradient(180deg, rgba(18,45,72,.94), rgba(7,20,34,.94));
+      border: 1px solid rgba(216,173,61,.3);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(0,0,0,.22);
+    }
+
+    .level {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #c99725, #f2cf72);
+      color: #06111e;
+      font-family: "Cinzel", serif;
+      font-size: 2rem;
+      font-weight: 800;
+    }
+
+    .scale-content {
+      padding: 24px 28px;
+    }
+
+    .scale-content h3 {
+      margin: 0 0 10px;
+      color: var(--gold2);
+      font-family: "Cinzel", serif;
+      letter-spacing: .035em;
+      font-size: 1.25rem;
+    }
+
+    .scale-content p {
+      margin: 0;
+    }
+
+    .current-status {
+      border-color: rgba(242,207,114,.85);
+      box-shadow: 0 0 34px rgba(216,173,61,.2);
+    }
+
+    .goal-status {
+      border-color: rgba(242,207,114,.85);
+      box-shadow: 0 0 34px rgba(216,173,61,.2);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 34px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(18,45,72,.94), rgba(7,20,34,.94));
+      border: 1px solid rgba(216,173,61,.32);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.22);
+    }
+
+    .card h3 {
+      margin: 0 0 14px;
+      color: var(--gold2);
+      font-family: "Cinzel", serif;
+      font-size: 1.2rem;
+      letter-spacing: .04em;
+    }
+
+    .quote {
+      margin: 42px auto 0;
+      max-width: 900px;
+      color: var(--gold2);
+      font-style: italic;
+      font-size: 1.35rem;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    footer {
+      padding: 40px 24px;
+      text-align: center;
+      color: rgba(255,255,255,.72);
+      background: #030913;
+      border-top: 1px solid rgba(216,173,61,.22);
+    }
+
+    @media (max-width: 900px) {
+      .site-header {
+        position: sticky;
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px 22px;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 70px 22px;
+      }
+
+      section {
+        padding: 58px 22px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .scale-item {
+        grid-template-columns: 1fr;
+      }
+
+      .level {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html">The Human Signal Project</a>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Manu</a>
+    <a href="research.html">Research</a>
+    <a href="join.html">Join</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Research & Exploration</h1>
+      <p>
+        The Human Signal Project supports independent investigation into emerging technologies, human consciousness, health, and practical approaches aimed at preserving and enhancing human sovereignty.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <h2>Our Scientific Vision</h2>
+
+      <p>
+        The Human Signal Project recognises that all scientific discovery begins with observation. Many phenomena now widely accepted by science were initially observed by only a few individuals before eventually being investigated systematically and independently replicated.
+      </p>
+
+      <p>
+        Our long-term objective is to progressively advance research concerning human signal phenomena through increasingly rigorous methodologies.
+      </p>
+
+      <div class="highlight-box">
+        <p>
+          <strong>Scientific objective:</strong> to generate sufficient high-quality evidence to achieve Level 9 scientific validation — systematic review and meta-analysis based on multiple independent studies — and, where warranted by the evidence, contribute to eventual Level 10 scientific consensus and societal understanding.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <h2>Scientific Credibility Scale</h2>
+
+      <div class="scale">
+
+        <div class="scale-item">
+          <div class="level">0</div>
+          <div class="scale-content">
+            <h3>Initial Observation</h3>
+            <p>A potentially significant phenomenon is observed by one or more individuals under natural conditions. The absence of formal scientific investigation does not necessarily imply that the observation is invalid; it indicates that systematic study has not yet been undertaken.</p>
+          </div>
+        </div>
+
+        <div class="scale-item">
+          <div class="level">1</div>
+          <div class="scale-content">
+            <h3>Documented Observation</h3>
+            <p>Observations are carefully documented using photographs, measurements, video recordings, testimonies, or other forms of evidence, creating a foundation for future scientific investigation.</p>
+          </div>
+        </div>
+
+        <div class="scale-item">
+          <div class="level">2</div>
+          <div class="scale-content">
+            <h3>Observational Case Series</h3>
+            <p>A number of cases are systematically documented using a common methodology. Patterns begin to emerge that justify more structured scientific investigation.</p>
+          </div>
+        </div>
+
+        <div class="scale-item">
+          <div class="level">3</div>
+          <div class="scale-content">
+            <h3>Structured Pilot Study</h3>
+            <p>A formal study is conducted using a defined protocol, consistent measurements, and documented outcomes. The objective is exploratory: to determine whether the phenomenon can be observed reliably and whether larger studies are justified.</p>
+          </div>
+        </div>
+
+        <div class="scale-item current-status">
+          <div class="level">4</div>
+          <div class="scale-content">
+            <h3>Controlled Non-Randomised Study</h3>
+            <p>Studies include comparison groups, baseline measurements, statistical analysis, and increased methodological rigour, but without full randomisation.</p>
+            <p><strong>Current Human Signal semiconductor detection research is presently estimated to lie approximately within Levels 3–4.</strong></p>
+          </div>
+        </div>
+
+        <div class="scale-item">
+          <div class="level">5</div>
+          <div class="scale-content">
+            <h3>Randomised Controlled Trial</h3>
+            <p>Participants are randomly assigned to intervention and control groups, helping reduce bias and strengthen causal interpretation.</p>
+          </div>
+        </div>
+
+        <div class="scale-item">
+          <div class="level">6</div>
+          <div class="scale-content">
+            <h3>Double-Blind Randomised Controlled Trial</h3>
+            <p>Neither participants nor investigators know which intervention participants receive, representing one of the strongest methods for reducing bias.</p>
+          </div>
+        </div>
+
+        <div class="scale-item">
+          <div class="level">7</div>
+          <div class="scale-content">
+            <h3>Multi-Centre Independent Replication</h3>
+            <p>The same methodology is successfully reproduced across multiple locations by different investigators. Reproducibility is a cornerstone of scientific validation.</p>
+          </div>
+        </div>
+
+        <div class="scale-item">
+          <div class="level">8</div>
+          <div class="scale-content">
+            <h3>Independent Replication by Multiple Research Groups</h3>
+            <p>Several independent research teams replicate the findings consistently, substantially increasing confidence in the phenomenon.</p>
+          </div>
+        </div>
+
+        <div class="scale-item goal-status">
+          <div class="level">9</div>
+          <div class="scale-content">
+            <h3>Meta-Analysis and Systematic Review</h3>
+            <p>Multiple independent studies are systematically analysed together. Consistent findings across numerous studies provide very strong scientific support.</p>
+            <p><strong>The Human Signal Project aspires to help facilitate research that ultimately reaches this level of scientific validation.</strong></p>
+          </div>
+        </div>
+
+        <div class="scale-item">
+          <div class="level">10</div>
+          <div class="scale-content">
+            <h3>Established Scientific Consensus</h3>
+            <p>The phenomenon becomes widely accepted by the broader scientific community and is incorporated into mainstream scientific understanding, education, and professional practice.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <h2>Current Areas of Exploration</h2>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Semiconductor Detection in Human Subjects</h3>
+          <p>Investigation of semiconductor-like responses detected in human subjects using non-linear junction detection technologies.</p>
+        </div>
+
+        <div class="card">
+          <h3>Human Signal Investigation</h3>
+          <p>Research into unusual signal phenomena potentially associated with the human body, including wireless signal observations, environmental influences, long-term monitoring, and comparative studies.</p>
+        </div>
+
+        <div class="card">
+          <h3>Consciousness and Human Development</h3>
+          <p>Exploring the relationship between technology, consciousness, health, spiritual development, and human potential.</p>
+        </div>
+
+        <div class="card">
+          <h3>Practical Solutions and Recovery Approaches</h3>
+          <p>Exploring detoxification approaches, lifestyle interventions, environmental optimisation, spiritual practices, and natural health methodologies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <h2>Research Principles</h2>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Open Inquiry</h3>
+          <p>Questions should be explored freely, respectfully, and responsibly.</p>
+        </div>
+
+        <div class="card">
+          <h3>Scientific Humility</h3>
+          <p>All conclusions remain open to revision in light of new evidence.</p>
+        </div>
+
+        <div class="card">
+          <h3>Independence</h3>
+          <p>Research should remain free from ideological or commercial pressures whenever possible.</p>
+        </div>
+
+        <div class="card">
+          <h3>Collaboration</h3>
+          <p>Progress emerges through cooperation, transparency, and shared learning.</p>
+        </div>
+      </div>
+
+      <div class="quote">
+        The future of human evolution should remain a conscious choice.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p><strong>Contact:</strong> info@humansignalproject.org</p>
+  <p>© 2026 The Human Signal Project. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

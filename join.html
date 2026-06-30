@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join the Movement | The Human Signal Project</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #d8ad3d;
+      --gold2: #f2cf72;
+      --text: #ffffff;
+      --muted: #d6dde8;
+      --line: rgba(216, 173, 61, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: radial-gradient(circle at top, #102942 0%, #06111e 55%, #030913 100%);
+      color: var(--text);
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(3, 10, 20, 0.84);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .brand {
+      font-family: "Cinzel", serif;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      font-size: clamp(1rem, 2.1vw, 1.85rem);
+      color: #fff;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      gap: 28px;
+      font-size: 0.98rem;
+      font-weight: 500;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .nav a:hover { color: var(--gold2); }
+
+    .hero {
+      min-height: 72vh;
+      padding: 150px 7% 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 18% 22%, rgba(216,173,61,.20), transparent 30%),
+        radial-gradient(circle at 85% 28%, rgba(45,128,190,.24), transparent 34%),
+        linear-gradient(180deg, rgba(6,17,30,.92), rgba(3,9,19,.98));
+    }
+
+    .hero-inner {
+      max-width: 1080px;
+    }
+
+    .hero h1 {
+      margin: 0 0 18px;
+      font-family: "Cinzel", serif;
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      color: var(--gold2);
+      letter-spacing: 0.04em;
+    }
+
+    .hero h2 {
+      margin: 0 0 28px;
+      font-family: "Cinzel", serif;
+      color: #fff;
+      font-size: clamp(1.25rem, 2.4vw, 2rem);
+      letter-spacing: 0.04em;
+    }
+
+    .hero p {
+      margin: 0 auto;
+      max-width: 960px;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2vw, 1.3rem);
+      line-height: 1.8;
+    }
+
+    section {
+      padding: 78px 7%;
+      border-top: 1px solid rgba(216,173,61,.18);
+    }
+
+    .section-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    h2.section-title {
+      margin: 0 0 34px;
+      font-family: "Cinzel", serif;
+      font-size: clamp(1.8rem, 3.1vw, 2.8rem);
+      color: var(--gold2);
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .intro-box {
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .roles {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 34px;
+    }
+
+    .role-card {
+      background: linear-gradient(180deg, rgba(18,45,72,.94), rgba(7,20,34,.94));
+      border: 1px solid rgba(216,173,61,.32);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.22);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .role-card:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 100%;
+      background: linear-gradient(90deg, #c99725, #f2cf72);
+    }
+
+    .role-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c99725, #f2cf72);
+      color: #06111e;
+      font-family: "Cinzel", serif;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .role-card h3 {
+      margin: 0 0 12px;
+      color: var(--gold2);
+      font-family: "Cinzel", serif;
+      font-size: 1.25rem;
+      letter-spacing: .035em;
+    }
+
+    .role-card .hook {
+      margin: 0 0 16px;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.08rem;
+      line-height: 1.55;
+    }
+
+    .role-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .closing-box {
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+      background: rgba(216,173,61,.09);
+      border: 1px solid rgba(216,173,61,.38);
+      border-radius: 20px;
+      padding: 38px;
+    }
+
+    .closing-box h2 {
+      margin: 0 0 22px;
+      font-family: "Cinzel", serif;
+      color: var(--gold2);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      letter-spacing: .04em;
+    }
+
+    .closing-box strong {
+      color: var(--gold2);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 26px;
+      padding: 15px 28px;
+      border-radius: 8px;
+      border: 1px solid var(--gold);
+      color: #06111e;
+      text-decoration: none;
+      font-weight: 800;
+      background: linear-gradient(135deg, #c99725, #f2cf72);
+    }
+
+    footer {
+      padding: 40px 24px;
+      text-align: center;
+      color: rgba(255,255,255,.72);
+      background: #030913;
+      border-top: 1px solid rgba(216,173,61,.22);
+    }
+
+    @media (max-width: 900px) {
+      .site-header {
+        position: sticky;
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px 22px;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 70px 22px;
+      }
+
+      section {
+        padding: 58px 22px;
+      }
+
+      .roles {
+        grid-template-columns: 1fr;
+      }
+
+      .closing-box {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html">The Human Signal Project</a>
+    <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Manu</a>
+    <a href="research.html">Research</a>
+    <a href="join.html">Join</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Join the Movement</h1>
+      <h2>Ten Ways to Serve, Ten Ways to Benefit</h2>
+      <p>
+        This is not a single path — it is an open invitation. Whoever you are, whatever you do, there is a place for you in this work.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <div class="intro-box">
+        <h2 class="section-title">A Place For Every Calling</h2>
+        <p>
+          Below are ten groups of people who can take part in revealing this truth to the world, and the real benefit each one stands to gain — for themselves, their families, and humanity.
+        </p>
+      </div>
+
+      <div class="roles">
+
+        <div class="role-card">
+          <div class="role-number">1</div>
+          <h3>Supporters & Sharers</h3>
+          <p class="hook">You don't need any expertise. You only need to care.</p>
+          <p>Every person who shares this information becomes, in that moment, a leader within their own circle — the first person to bring real, research-based knowledge to people they love. This isn't fear-mongering; it is an invitation into serious exploration, supported by emerging evidence, independent research, and practical solutions.</p>
+        </div>
+
+        <div class="role-card">
+          <div class="role-number">2</div>
+          <h3>Content Creators, Journalists, Podcasters & Show Hosts</h3>
+          <p class="hook">A topic your audience has never heard — backed by evidence, data, and live demonstration.</p>
+          <p>This subject offers something most content creators are looking for: a story with scientific grounding, dramatic stakes, and a genuine solution. You can bring on experts, run live demonstrations, or interview those already doing the work. Beyond audience growth, there is also the deeper satisfaction of helping real people face a real problem with a real way forward.</p>
+        </div>
+
+        <div class="role-card">
+          <div class="role-number">3</div>
+          <h3>Researchers & Testers</h3>
+          <p class="hook">The hardest part is already done. Now you can build on it.</p>
+          <p>Years of pioneering effort have opened the way for more reliable methods of detecting this technology in the human body. You do not need a university degree to begin; authentic curiosity, discipline, and dedication are enough. This is a genuinely new field, and those who step forward now may be counted among the first to help establish it on a serious scientific footing.</p>
+        </div>
+
+        <div class="role-card">
+          <div class="role-number">4</div>
+          <h3>Demonstration Experts</h3>
+          <p class="hook">Perhaps the single most exciting opportunity in this entire movement.</p>
+          <p>This is human connection at its rawest. When testing reveals something unexpected, an authentic conversation opens about the body, technology, consciousness, and sovereignty. A demonstration expert is not merely operating equipment; they are helping another person enter a new reality with clarity, sensitivity, grounding, and compassion.</p>
+        </div>
+
+        <div class="role-card">
+          <div class="role-number">5</div>
+          <h3>Health Practitioners & Clinic Owners</h3>
+          <p class="hook">Deepen your relationship with every client you already have.</p>
+          <p>Whether you run a clinic, wellness studio, retreat, or private practice, this testing offers a way to connect with clients on a level few other services reach — revealing an unseen burden and opening the door to practical support, detoxification strategies, lifestyle changes, and deeper questions about wellbeing.</p>
+        </div>
+
+        <div class="role-card">
+          <div class="role-number">6</div>
+          <h3>Spiritual & Consciousness Communities</h3>
+          <p class="hook">A powerful entry point for spiritual awakening and service.</p>
+          <p>Every spiritual tradition understands the importance of the moment when consciousness opens to the possibility of change. This work can create a tangible moment of re-evaluation: of the body, environment, choices, beliefs, and inner direction. For communities dedicated to purity, awakening, and service, it offers a bridge between the physical and the transcendent.</p>
+        </div>
+
+        <div class="role-card">
+          <div class="role-number">7</div>
+          <h3>Product Developers — Detoxification & Recovery</h3>
+          <p class="hook">If you believe in your formula, here is the proof you've been looking for.</p>
+          <p>If you have developed — or believe you can develop — a product capable of helping the body clear this kind of technological burden, the path to testing and validation is now open. This can be pursued independently or in collaboration with others already working in this emerging field.</p>
+        </div>
+
+        <div class="role-card">
+          <div class="role-number">8</div>
+          <h3>Electronics Producers</h3>
+          <p class="hook">The market is small today. You can be the one who makes it large.</p>
+          <p>Non-linear junction detection equipment is currently produced mainly for specialised security applications, often at high cost. There is a real opportunity for technologists and manufacturers to create more accessible, standardised equipment for the researchers, testers, practitioners, and communities this movement may inspire.</p>
+        </div>
+
+        <div class="role-card">
+          <div class="role-number">9</div>
+          <h3>Legal Professionals</h3>
+          <p class="hook">Where there is harm, there is also the right to justice.</p>
+          <p>As evidence develops, legal professionals may help explore questions of consent, public safety, accountability, compensation, and future regulation. This field may eventually require serious legal, ethical, and human-rights discussion.</p>
+        </div>
+
+        <div class="role-card">
+          <div class="role-number">10</div>
+          <h3>Community Leaders & Public Figures</h3>
+          <p class="hook">An opportunity not only for influence, but for legacy.</p>
+          <p>For leaders of health organisations, spiritual communities, social movements, or public institutions, this is a chance to stand for something larger: the right of every human being to a body and mind free from unwanted interference, open to genuine connection with nature, with others, and with the Divine.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <div class="closing-box">
+        <h2>However You Choose To Join</h2>
+        <p>
+          Whether you share a single message with a friend, conduct your first test, or commit your career to this field — every contribution matters, and every contributor is welcome.
+        </p>
+        <p>
+          This movement was built by people from every walk of life, with no special qualifications required beyond sincerity and the willingness to begin.
+        </p>
+        <p>
+          <strong>Ready to find your place in this movement?</strong>
+        </p>
+        <a class="button" href="mailto:info@humansignalproject.org">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p><strong>Contact:</strong> info@humansignalproject.org</p>
+  <p>© 2026 The Human Signal Project. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

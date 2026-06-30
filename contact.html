@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | The Human Signal Project</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+ --gold:#d8ad3d; --gold2:#f2cf72;
+ --text:#fff; --muted:#d6dde8;
+}
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Inter,sans-serif;
+ background:radial-gradient(circle at top,#102942 0%,#06111e 55%,#030913 100%);
+ color:var(--text);
+}
+.site-header{
+ position:fixed;top:0;left:0;width:100%;z-index:50;
+ display:flex;justify-content:space-between;align-items:center;
+ padding:18px 48px;
+ background:rgba(3,10,20,.84);
+ backdrop-filter:blur(14px);
+}
+.brand{
+ font-family:Cinzel,serif;font-weight:700;
+ color:#fff;text-decoration:none;font-size:1.6rem;
+}
+.nav{display:flex;gap:28px}
+.nav a{text-decoration:none;color:#fff}
+.nav a:hover{color:var(--gold2)}
+
+.hero{
+ min-height:65vh;
+ display:flex;align-items:center;justify-content:center;
+ text-align:center;
+ padding:150px 7% 90px;
+ border-bottom:1px solid rgba(216,173,61,.25);
+}
+.hero-inner{max-width:950px}
+.hero h1{
+ font-family:Cinzel,serif;
+ font-size:clamp(2.5rem,5vw,5rem);
+ color:var(--gold2);
+ margin:0 0 20px;
+}
+.hero p{
+ color:var(--muted);
+ font-size:1.25rem;
+ line-height:1.8;
+}
+
+section{padding:80px 7%}
+.container{max-width:1100px;margin:auto}
+
+h2{
+ text-align:center;
+ font-family:Cinzel,serif;
+ color:var(--gold2);
+ font-size:2.3rem;
+ margin-bottom:35px;
+}
+
+.grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:30px;
+}
+
+.card{
+ background:linear-gradient(180deg,rgba(18,45,72,.94),rgba(7,20,34,.94));
+ border:1px solid rgba(216,173,61,.3);
+ border-radius:18px;
+ padding:32px;
+}
+
+.card h3{
+ margin-top:0;
+ color:var(--gold2);
+ font-family:Cinzel,serif;
+}
+
+p,li,label{
+ color:var(--muted);
+ line-height:1.8;
+}
+
+ul{padding-left:20px}
+
+input,select,textarea{
+ width:100%;
+ padding:14px;
+ margin-bottom:18px;
+ border-radius:8px;
+ border:1px solid rgba(216,173,61,.3);
+ background:rgba(255,255,255,.06);
+ color:white;
+}
+
+option{color:black}
+
+button{
+ padding:15px 28px;
+ border:none;
+ border-radius:8px;
+ background:linear-gradient(135deg,#c99725,#f2cf72);
+ color:#06111e;
+ font-weight:700;
+ cursor:pointer;
+}
+
+.quote{
+ text-align:center;
+ margin-top:60px;
+ color:var(--gold2);
+ font-style:italic;
+ font-size:1.3rem;
+}
+
+footer{
+ text-align:center;
+ padding:40px;
+ background:#030913;
+ color:rgba(255,255,255,.7);
+}
+
+@media(max-width:900px){
+ .site-header{flex-direction:column;gap:12px;padding:14px}
+ .nav{flex-wrap:wrap;justify-content:center}
+ .grid{grid-template-columns:1fr}
+ .hero{padding-top:120px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+<a class="brand" href="index.html">The Human Signal Project</a>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Manu</a>
+    <a href="research.html">Research</a>
+    <a href="join.html">Join</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+<div class="hero-inner">
+<h1>Contact Us</h1>
+<p>Whether you are a researcher, health practitioner, content creator, engineer, community leader, or simply someone curious to learn more, we welcome your message.</p>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>Get In Touch</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>General Enquiries</h3>
+<p><strong>Email:</strong><br>info@humansignalproject.org</p>
+
+<h3>We Welcome Messages Regarding:</h3>
+<ul>
+<li>Research collaboration</li>
+<li>Testing and demonstration opportunities</li>
+<li>Media interviews and podcasts</li>
+<li>Health practitioner partnerships</li>
+<li>Community presentations and events</li>
+<li>Technology development</li>
+<li>Product development and validation</li>
+<li>International collaboration</li>
+<li>General questions and feedback</li>
+</ul>
+
+<p>We are actively seeking researchers, testers, practitioners, technologists, content creators, and community leaders who wish to contribute to this emerging field.</p>
+</div>
+
+<div class="card">
+<h3>Send a Message</h3>
+
+<form>
+<label>Name</label>
+<input type="text" placeholder="Your name">
+
+<label>Email</label>
+<input type="email" placeholder="Your email">
+
+<label>Country</label>
+<input type="text" placeholder="Your country">
+
+<label>I am interested in:</label>
+<select>
+<option>Research</option>
+<option>Testing</option>
+<option>Practitioner Partnership</option>
+<option>Media / Podcast</option>
+<option>Technology Development</option>
+<option>Community Leadership</option>
+<option>Product Development</option>
+<option>General Enquiry</option>
+</select>
+
+<label>Message</label>
+<textarea rows="7" placeholder="Your message"></textarea>
+
+<button type="submit">Send Message</button>
+</form>
+</div>
+
+</div>
+
+<div class="quote">
+"Every major movement in history began with a conversation. This one may begin with yours."
+</div>
+
+</div>
+</section>
+
+<footer>
+<p><strong>Contact:</strong> info@humansignalproject.org</p>
+<p>© 2026 The Human Signal Project. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
